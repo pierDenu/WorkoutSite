@@ -1,0 +1,67 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container to center content */
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Button container styling */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Button styling */
+.button {
+    padding: 12px 25px;
+    font-size: 18px;
+    color: white;
+    background-color: #4CAF50; /* Green color */
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    width: 80%;
+    max-width: 300px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+    .button {
+        width: 90%;
+    }
+}
