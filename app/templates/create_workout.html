@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Workout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create_workout.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
 </head>
-<body>
 
+<body>
+    <header>
+        <h1>Create Workout</h1>
+    </header>
+    <main>
+        <div class="container">
+            <!-- Column 1: Added Exercises -->
+            <div class="column">
+                <h2>Added Exercises</h2>
+                <input type="text" id="workout-name" placeholder="Enter workout name">
+                <ul id="added-exercises" class="exercise-list">
+
+                </ul>
+                <button id="save-workout" class="save-button">Save Workout</button>
+            </div>
+
+            <!-- Column 2: All Exercises -->
+            <div class="column">
+                <h2>All Exercises</h2>
+                <ul id="all-exercises" class="exercise-list">
+                    {% for exercise in all_exercises %}
+                    <li id="exercise" data-id="{{ exercise.id }}">
+                        {{ exercise.name }}
+                        <input type="number" class="reps" placeholder="Reps">
+                        <input type="number" class="rest-time" placeholder="Rest Time (sec)">
+                        {% if exercise.needs_additional_weight %}
+                            <input type="number" class="add-weight" placeholder="Additional weight (kg)">
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Workout Website</p>
+    </footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
