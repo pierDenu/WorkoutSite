@@ -28,9 +28,18 @@
             <!-- Column 2: All Exercises -->
             <div class="column">
                 <h2>All Exercises</h2>
-                <ul id="all-exercises" class="exercise-list">
+                <input type="text" id="exersice-name-search" placeholder="Exercise name">
+                <div class="dropdown">
+                  <button id="dropdown-button">Choose muscle group</button>
+                    <ul id="muscle-group-list">
+                        {% for muscle_group in muscle_groups %}
+                        <li class="muscle-group">{{ muscle_group.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                    <ul id="all-exercises" class="exercise-list">
                     {% for exercise in all_exercises %}
-                    <li id="exercise" data-id="{{ exercise.id }}">
+                    <li class="exercise" data-id="{{ exercise.id }}">
                         {{ exercise.name }}
                         <input type="number" class="reps" placeholder="Reps">
                         <input type="number" class="rest-time" placeholder="Rest Time (sec)">

@@ -9,3 +9,10 @@ workout_exercise = db.Table('workout_exercise',
     db.Column('additional_weight', db.Integer, nullable=True),  # Additional weight (if needed)
     db.Column('order', db.Integer, nullable=False)  # Order of exercises within the workout
 )
+
+exercise_muscle_group = db.Table(
+    'exercise_muscle_group',
+    db.Column('exercise_id', db.Integer, db.ForeignKey('exercise.id'), primary_key=True),
+    db.Column('muscle_group_id', db.Integer, db.ForeignKey('muscle_groups.id'), primary_key=True)
+)
+
