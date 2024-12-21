@@ -51,7 +51,7 @@ export function saveWorkout(addedExercisesList) {
         };
 
         // Send workout data to the server
-        fetch('/save-workout', {
+        fetch('/workouts/save', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ export async function filterByGroup(event, list) {
     if (muscleGroup.classList.contains('muscle-group')) {
         try {
             const groupName = muscleGroup.innerHTML; // or use a `data-name` attribute
-            const response = await fetch(`search-exercise-muscle-group/${groupName}`);
+            const response = await fetch(`/search-exercise-muscle-group/${groupName}`);
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
