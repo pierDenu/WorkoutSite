@@ -1,0 +1,24 @@
+<div class="training-plan">
+    <h2>{{ plan.name }}</h2>
+    <div class="days-grid">
+        {% for day, workout in schedule.items() %}
+            <div class="day-box" data-day="{{ day }}">
+                <h3>{{ day }}</h3>
+                <div class="workout-container">
+                    {% if workout %}
+                        <div class="workout-item" draggable="true" data-id="{{ workout.id }}">
+                            <h4>{{ workout.name }}</h4>
+                            <ul>
+                                {% for exercise in workout.exercises %}
+                                    <li>{{ exercise.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% else %}
+                        <p>No workout assigned</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

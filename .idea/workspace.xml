@@ -5,17 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="996c1886-d112-41f3-bcd1-26eeb93c7410" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/muscle_group.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/basemodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/plan.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/workout_plan.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/css/create_plan.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/js/create_plan/backendCommunications.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/js/create_plan/dragHandling.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/js/create_plan/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/calendar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/create_plan.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/display_plan.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/associations.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/associations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/exercise.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/exercise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/muscle_group.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/muscle_group.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/workout.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/workout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/plans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/plans/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scripts/seed_exercises.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/seed_exercises.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/choose_workout.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/choose_workout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/create_workout.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/create_workout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/workouts/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/workouts/routes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +41,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Flask Main" />
-        <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -68,28 +83,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Flask server.WorkOutSite.executor": "Run",
-    "Python.create_muscle_groups.executor": "Run",
-    "Python.muscle_group.executor": "Run",
-    "Python.seed_exercises.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Flask server.WorkOutSite.executor&quot;: &quot;Run&quot;,
+    &quot;Python.create_muscle_groups.executor&quot;: &quot;Run&quot;,
+    &quot;Python.muscle_group.executor&quot;: &quot;Run&quot;,
+    &quot;Python.routes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.seed_exercises.executor&quot;: &quot;Run&quot;,
+    &quot;Python.temporary.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/static/js/create_plan" />
       <recent name="$PROJECT_DIR$/app" />
     </key>
   </component>
@@ -135,6 +153,16 @@
       <workItem from="1732215382311" duration="654000" />
       <workItem from="1732264058508" duration="6060000" />
       <workItem from="1732436892158" duration="14667000" />
+      <workItem from="1733940408740" duration="2851000" />
+      <workItem from="1734173741391" duration="3180000" />
+      <workItem from="1734355652256" duration="308000" />
+      <workItem from="1734538694146" duration="3268000" />
+      <workItem from="1734688784825" duration="1796000" />
+      <workItem from="1734702613160" duration="8672000" />
+      <workItem from="1734791362789" duration="6139000" />
+      <workItem from="1735136465092" duration="2043000" />
+      <workItem from="1735222785425" duration="5426000" />
+      <workItem from="1735386776118" duration="6664000" />
     </task>
     <servers />
   </component>
@@ -142,7 +170,10 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/WorkOutSite$WorkOutSite.coverage" NAME="WorkOutSite Coverage Results" MODIFIED="1732464880586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/WorkOutSite$Flask__app_check_db_py_.coverage" NAME="Flask (app/check_db.py) Coverage Results" MODIFIED="1733497359093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/WorkOutSite$temporary.coverage" NAME="temporary Coverage Results" MODIFIED="1734539424102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/scripts" />
+    <SUITE FILE_PATH="coverage/WorkOutSite$routes.coverage" NAME="routes Coverage Results" MODIFIED="1734540488772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/main" />
+    <SUITE FILE_PATH="coverage/WorkOutSite$WorkOutSite.coverage" NAME="WorkOutSite Coverage Results" MODIFIED="1735486971721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/WorkOutSite$muscle_group.coverage" NAME="muscle_group Coverage Results" MODIFIED="1732444640735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/models" />
     <SUITE FILE_PATH="coverage/WorkOutSite$create_muscle_groups.coverage" NAME="create_muscle_groups Coverage Results" MODIFIED="1732449007873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/scripts" />
     <SUITE FILE_PATH="coverage/WorkOutSite$seed_exercises.coverage" NAME="seed_exercises Coverage Results" MODIFIED="1732449315211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/scripts" />

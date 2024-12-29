@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Workout Plan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create_plan.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Top section: Display training plan -->
+        <div class="top-section">
+            {% include 'display_plan.html' %}
+        </div>
+
+        <!-- Bottom section: List of available workouts -->
+        <div class="bottom-section">
+            <div class="available-workouts">
+                <h2>Available Workouts</h2>
+                <div class="workouts-grid">
+                    {% for workout in workouts %}
+                        <div class="workout-item" draggable="true" data-id="{{ workout.id }}">
+                            <h4>{{ workout.name }}</h4>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="module" src="{{ url_for('static', filename='js/create_plan/main.js') }}"></script>
+</body>
+</html>

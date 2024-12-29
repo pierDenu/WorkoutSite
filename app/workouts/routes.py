@@ -7,7 +7,7 @@ from app.workouts import workouts_bp
 from app import db
 
 @workouts_bp.route('/')
-def choose_workout():
+def choose():
     workouts = Workout.query.all()
     return render_template('choose_workout.html', workouts=workouts)
 

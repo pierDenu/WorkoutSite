@@ -9,7 +9,7 @@ from app.plans import plans_bp
 #     return render_template("choose_plan.html", plans=plans)
 
 @plans_bp.route('/create')
-def create_plan():
+def create():
     plan = Plan(name='New Plan')  # Temporary plan object, not saved to DB
     workouts = Workout.get_all()  # Assuming this retrieves all workouts from DB
     weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -17,7 +17,7 @@ def create_plan():
     return render_template("create_plan.html", plan=plan, schedule=schedule, workouts=workouts)
 
 @plans_bp.route('/display/<string:plan_id>')
-def display_plan(plan_id):
+def display(plan_id):
     plan = Plan.get_by_id(plan_id)
     weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     schedule = {}

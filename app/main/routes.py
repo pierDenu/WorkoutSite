@@ -1,4 +1,4 @@
-from flask import render_template, jsonify
+from flask import render_template, jsonify, abort
 
 from app.main import bp
 from app.models import Plan, PlanWorkout
@@ -60,7 +60,17 @@ def search_exercises_by_muscle_group(muscle_group_name):
         print(f"Error: {e}")
         return jsonify({"message": "An unexpected error occurred"}), 500
 
+@bp.route('/workout-data-by-id/<int:workout_id>')
+def get_workout_by_id(workout_id):
+    try:
+        workout = Workout.get_by_id(workout_id)
+        if not workout:
+            abort(404, description="Item not found")
+        return jsonify(workout.to_dict())
 
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"message": "An unexpected error occurred"}), 500
 
 
 @bp.route('/goida')

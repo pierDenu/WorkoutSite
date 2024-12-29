@@ -13,6 +13,6 @@ workout_exercise = db.Table('workout_exercise',
 exercise_muscle_group = db.Table(
     'exercise_muscle_group',
     db.Column('exercise_id', db.Integer, db.ForeignKey('exercise.id'), primary_key=True),
-    db.Column('muscle_group_id', db.Integer, db.ForeignKey('muscle_groups.id'), primary_key=True)
+    db.Column('muscle_group_id', db.Integer, db.ForeignKey('muscle_group.id'), primary_key=True)
 )
 

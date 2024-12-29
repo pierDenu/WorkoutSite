@@ -1,6 +1,4 @@
 from app import create_app, db
-from app.models.workout import Workout  # Import the models (Workout, Exercise, etc.)
-from app.models.exercise import Exercise
 
 # Create the Flask application
 app = create_app()

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag and Drop with Precise Placement</title>
+  <style>
+    .list-receiver, .list-transmitter {
+      border: 1px solid #ccc;
+      width: 200px;
+      min-height: 200px;
+      margin: 10px;
+      padding: 10px;
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+    }
+    .list-item {
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #f0f0f0;
+      cursor: grab;
+      border: 1px solid #ddd;
+    }
+    .placeholder {
+      height: 40px;
+      margin: 5px 0;
+      background-color: #d0ffd0;
+      border: 1px dashed #00cc00;
+    }
+  </style>
+</head>
+<body>
+  <div class="list-transmitter" id="list1">
+    <div class="list-item" draggable="true">Item 1</div>
+    <div class="list-item" draggable="true">Item 2</div>
+    <div class="list-item" draggable="true">Item 3</div>
+  </div>
+
+  <div class="list-receiver" id="list2">
+    <div class="list-item" draggable="true">Item A</div>
+    <div class="list-item" draggable="true">Item B</div>
+    <div class="list-item" draggable="true">Item C</div>
+  </div>
+
+  <script>
+    // Select list containers
+const listTransmitter = document.querySelectorAll('.list-transmitter');
+const listReceiver = document.querySelectorAll('.list-receiver');
+const lists = [...listTransmitter, ...listReceiver]; // Combine lists into one
+
+let draggedItem = null;
+let sourceList = null;
+let placeholder = document.createElement('div');
+placeholder.classList.add('placeholder');
+
+// Helper function to handle dragstart
+const handleDragStart = (e, list) => {
+  if (e.target.classList.contains('list-item')) {
+    draggedItem = e.target; // Store the dragged item
+    sourceList = list; // Save the source list
+    e.dataTransfer.effectAllowed = list.classList.contains('list-transmitter') ? 'copy' : 'move'; // Set effect mode
+
+    // Highlight the dragged item
+    setTimeout(() => {
+      e.target.style.opacity = list.classList.contains('list-receiver') ? '0' : '0.5';
+    }, 0);
+  }
+};
+
+// Helper function to handle dragend
+const handleDragEnd = (e) => {
+  if (draggedItem) {
+    draggedItem.style.opacity = '1'; // Reset opacity
+  }
+  draggedItem = null; // Clear the dragged item
+  placeholder.remove(); // Remove the placeholder
+};
+
+// Helper function for dragover
+const handleDragOver = (e, list) => {
+  if (sourceList !== list) {
+    e.preventDefault(); // Allow drop
+
+    const children = [...list.children];
+    const closest = children.find(child => child !== placeholder && child.getBoundingClientRect().top > e.clientY);
+
+    if (closest) {
+      list.insertBefore(placeholder, closest); // Insert placeholder before closest item
+    } else {
+      list.appendChild(placeholder); // Append placeholder to the end
+    }
+  }
+};
+
+// Helper function for drop
+const handleDrop = (e, list) => {
+  e.preventDefault();
+
+  if (draggedItem) {
+    draggedItem.style.opacity = '1'; // Reset opacity
+  }
+
+  if (sourceList !== list && draggedItem) {
+    const newItem = draggedItem.cloneNode(true); // Clone the dragged item
+    list.insertBefore(newItem, placeholder); // Insert the new item at the correct position
+  }
+
+  if (sourceList && sourceList.classList.contains('list-receiver')) {
+    sourceList.removeChild(draggedItem); // Remove the original item from the source list
+  }
+
+  placeholder.remove(); // Remove placeholder
+  draggedItem = null; // Clear the dragged item
+};
+
+// Attach event listeners
+const attachEventListeners = (list) => {
+  list.addEventListener('dragstart', (e) => handleDragStart(e, list));
+  list.addEventListener('dragover', (e) => handleDragOver(e, list));
+  list.addEventListener('drop', (e) => handleDrop(e, list));
+  list.querySelectorAll('.list-item').forEach(item => {
+    item.addEventListener('dragend', (e) => handleDragEnd(e, draggedItem));
+  });
+  list.addEventListener('dragleave', () => placeholder.remove()); // Remove placeholder when leaving the list
+};
+
+// Attach event listeners to each list
+lists.forEach(attachEventListeners);
+
+
+
+  </script>
+</body>
+</html>

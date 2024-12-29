@@ -1,7 +1,9 @@
-from app.extensions import db
+from app import db
+from app.models.basemodel import BaseModel
 
-class MuscleGroup(db.Model):
-    __tablename__ = 'muscle_groups'
+
+class MuscleGroup(BaseModel):
+    __tablename__ = 'muscle_group'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True, nullable=False)
 
@@ -13,8 +15,3 @@ class MuscleGroup(db.Model):
     def to_dict(self):
         return {'id': self.id, 'name': self.name}
 
-    @staticmethod
-    def get_all():
-        muscle_groups = MuscleGroup.query.all()
-        return muscle_groups
-from app.models.associations import exercise_muscle_group
