@@ -1,4 +1,4 @@
-import { handleDragStart, handleDragOver, handleDrop, handleDragEnd } from './dragHandling.js';
+import { handleDragStart, handleDragOver, handleDrop, handleDragEnd, handleDragLeave } from './dragHandling.js';
 
 document.addEventListener('DOMContentLoaded', function () {
     const availableWorkoutsGrid = document.querySelectorAll('.workouts-grid');
@@ -9,14 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
         list.addEventListener('dragstart', (e) => handleDragStart(e, list));
         list.addEventListener('dragover', (e) => handleDragOver(e, list));
         list.addEventListener('drop', (e) => handleDrop(e, list));
-        list.querySelectorAll('.list-item').forEach(item => {
-            item.addEventListener('dragend', (e) => handleDragEnd(e, draggedItem));
-        });
-        list.addEventListener('dragleave', (e) => {
-            // let placeholder = document.querySelector('.placeholder');
-            // placeholder.remove();
-        }); // Remove placeholder when leaving the list
+        list.addEventListener('dragend', (e) => handleDragEnd(e));
     };
+
+    const dayGrid = document.querySelector('.top-section');
+    dayGrid.addEventListener('dragleave', (e) => handleDragLeave(e));
 
     lists.forEach(attachEventListeners);
 })

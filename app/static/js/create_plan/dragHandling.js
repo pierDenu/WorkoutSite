@@ -18,12 +18,18 @@ export function handleDragEnd(e) {
 // Helper function for dragover
 export function handleDragOver(e, list){
     e.preventDefault();
-    if (sourceList() !== list) {
+    if (sourceList() !== list && !list.classList.contains('workouts-grid')) {
         const children = [...list.children];
         const closest = children.find(child => child.getBoundingClientRect().top > e.clientY);
         if(!placeholder) {
             placeholder = document.createElement('div');
             placeholder.classList.add('placeholder');
+
+            const width = draggedItem.offsetWidth;
+            const height = draggedItem.offsetHeight;
+
+            placeholder.style.width = `${width}px`;
+            placeholder.style.height = `${height}px`;
         }
         if (closest) {
             list.insertBefore(placeholder, closest); // Insert placeholder before closest item
@@ -39,7 +45,7 @@ export function handleDrop(e, list){
   e.preventDefault();
   draggedItem.style.opacity = '1';
 
-  if (sourceList() !== list) {
+  if (sourceList() !== list && !list.classList.contains('workouts-grid')) {
     const newItem = draggedItem.cloneNode(true); // Clone the dragged item
     list.insertBefore(newItem, placeholder); // Insert the new item at the correct position
   }
@@ -49,6 +55,12 @@ export function handleDrop(e, list){
   }
   placeholder.remove(); // Remove placeholder
   placeholder = null;
+}
+
+export function handleDragLeave(e) {
+    placeholder.remove();
+    placeholder = null;
+    console.log(e.target.offsetWidth);
 }
 
 function sourceList() {

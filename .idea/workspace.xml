@@ -5,32 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="996c1886-d112-41f3-bcd1-26eeb93c7410" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/basemodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/plan.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/workout_plan.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/css/create_plan.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/js/create_plan/backendCommunications.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/js/create_plan/dragHandling.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/js/create_plan/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/calendar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/create_plan.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/display_plan.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/associations.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/associations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/exercise.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/exercise.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/muscle_group.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/muscle_group.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/workout.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/workout.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/plans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/plans/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/choose_workout.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/choose_workout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/create_workout.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/create_workout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/workouts/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/workouts/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/css/create_plan.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/create_plan.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/create_plan/dragHandling.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/js/create_plan/dragHandling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/create_plan/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/js/create_plan/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +140,7 @@
       <workItem from="1734791362789" duration="6139000" />
       <workItem from="1735136465092" duration="2043000" />
       <workItem from="1735222785425" duration="5426000" />
-      <workItem from="1735386776118" duration="6664000" />
+      <workItem from="1735386776118" duration="12619000" />
     </task>
     <servers />
   </component>
@@ -173,7 +151,7 @@
     <SUITE FILE_PATH="coverage/WorkOutSite$Flask__app_check_db_py_.coverage" NAME="Flask (app/check_db.py) Coverage Results" MODIFIED="1733497359093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/WorkOutSite$temporary.coverage" NAME="temporary Coverage Results" MODIFIED="1734539424102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/scripts" />
     <SUITE FILE_PATH="coverage/WorkOutSite$routes.coverage" NAME="routes Coverage Results" MODIFIED="1734540488772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/main" />
-    <SUITE FILE_PATH="coverage/WorkOutSite$WorkOutSite.coverage" NAME="WorkOutSite Coverage Results" MODIFIED="1735486971721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/WorkOutSite$WorkOutSite.coverage" NAME="WorkOutSite Coverage Results" MODIFIED="1735499260917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/WorkOutSite$muscle_group.coverage" NAME="muscle_group Coverage Results" MODIFIED="1732444640735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/models" />
     <SUITE FILE_PATH="coverage/WorkOutSite$create_muscle_groups.coverage" NAME="create_muscle_groups Coverage Results" MODIFIED="1732449007873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/scripts" />
     <SUITE FILE_PATH="coverage/WorkOutSite$seed_exercises.coverage" NAME="seed_exercises Coverage Results" MODIFIED="1732449315211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/scripts" />
