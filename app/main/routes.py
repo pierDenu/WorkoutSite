@@ -1,4 +1,4 @@
-from flask import render_template, jsonify, abort
+from flask import render_template, jsonify, abort, request
 
 from app.main import bp
 from app.models import Plan, PlanWorkout
@@ -73,6 +73,13 @@ def get_workout_by_id(workout_id):
         return jsonify({"message": "An unexpected error occurred"}), 500
 
 
-@bp.route('/goida')
-def goida():
-    return render_template("goida.html")
+@bp.route("/calendar")
+def weekly_calendar():
+    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    workouts = Workout.get_all()
+    return render_template("create_plan.html", days=days, workouts=workouts)
+
+@bp.route("/test")
+def test():
+    return render_template("base.html")
+

@@ -1,32 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Workout Plan</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/create_plan.css') }}">
-</head>
-<body>
-    <div class="container">
-        <!-- Top section: Display training plan -->
-        <div class="top-section">
-            {% include 'display_plan.html' %}
-        </div>
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-        <!-- Bottom section: List of available workouts -->
-        <div class="bottom-section">
-            <div class="available-workouts">
-                <h2>Available Workouts</h2>
-                <div class="workouts-grid">
-                    {% for workout in workouts %}
-                        <div class="workout-item" draggable="true" data-id="{{ workout.id }}">
-                            <h4>{{ workout.name }}</h4>
-                        </div>
-                    {% endfor %}
+{% block head %}
+	{{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='drag_and_drop.css') }}">
+{% endblock %}
+
+{% block content %}
+    {{ super() }}
+    <div class="row" style="height: 600px"> <!-- Fixed height because of navbar dynamic height
+     in collapsed and expanded state. To avoid scrollbar needed fixed height -->
+        <div class="col-md-9">
+            <form id="plan-name-form">
+                <div class="input-group mb-3">
+                    <input type="text" id="plan-name-input" class="form-control"
+                           placeholder="{{ plan.name if plan.name else 'Назва плану' }}">
+                    <button type="submit" class="btn btn-primary">Зберегти</button>
                 </div>
-            </div>
+            </form>
+            {% include "calendar.html" %}
+        </div>
+        <div class="col-md-3 pb-3 h-100 d-flex flex-column">
+            <h4 class="text-center mb-3">Список тренувань</h4>
+            <input type="text" id="search-workout" placeholder="Enter workout name">
+            {% include "workout_list.html" %}
         </div>
     </div>
-<script type="module" src="{{ url_for('static', filename='js/create_plan/main.js') }}"></script>
+{% endblock %}
+
+{% block scripts %}
+	{{ super() }}
+    <script type="module" src="{{ url_for('static', filename='js/create_plan/main.js') }}"></script>
+{% endblock %}
 </body>
 </html>

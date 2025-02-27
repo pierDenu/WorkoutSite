@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% for chunk in days|batch(4) %}
+    <div class="row justify-content-center h-50">
+        {% for day in chunk %}
+            <div class="col-md-3 mb-3">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <div class="card-header">
+                            {{ day }}
+                        </div>
+                        <ul class="{% if enable_drag_and_drop %}drop-list{% endif %}
+                         text-center list-group h-100" id="{{ day }}">
+                            {% for workout in plan.get_workouts_by_day(day) %}
+                                <li class="text-center list-group-item {% if enable_drag_and_drop %}
+                                drag-item{% endif %}" {% if enable_drag_and_drop %}draggable="true"{% endif %}>
+                                    {{ workout.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}

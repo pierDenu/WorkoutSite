@@ -1,9 +1,10 @@
 import { handleDragStart, handleDragOver, handleDrop, handleDragEnd, handleDragLeave } from './dragHandling.js';
+import {savePlan, searchWorkouts} from "./backendCommunications.js";
 
 document.addEventListener('DOMContentLoaded', function () {
-    const availableWorkoutsGrid = document.querySelectorAll('.workouts-grid');
-    const daysList = document.querySelectorAll('.day-box');
-    const lists = [...availableWorkoutsGrid, ...daysList];
+    const dragLists = document.querySelectorAll('.drag-list');
+    const dropLists = document.querySelectorAll('.drop-list');
+    const lists = [...dragLists, ...dropLists];
 
     const attachEventListeners = (list) => {
         list.addEventListener('dragstart', (e) => handleDragStart(e, list));
@@ -12,8 +13,19 @@ document.addEventListener('DOMContentLoaded', function () {
         list.addEventListener('dragend', (e) => handleDragEnd(e));
     };
 
-    const dayGrid = document.querySelector('.top-section');
-    dayGrid.addEventListener('dragleave', (e) => handleDragLeave(e));
+    dropLists.forEach((list) => {
+        list.addEventListener('dragleave', (e) => handleDragLeave(e));
+    });
 
     lists.forEach(attachEventListeners);
+
+    const submissionForm = document.getElementById("plan-name-form");
+    let input = document.getElementById("plan-name-input");
+    submissionForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        savePlan(dropLists, input.value)
+    });
+
+    document.getElementById("search-workout").addEventListener('input',() => {
+        searchWorkouts()});
 })

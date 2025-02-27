@@ -2,10 +2,10 @@ let draggedItem = null;
 let placeholder = null;
 
 export function handleDragStart(e, list) {
-    if (e.target.classList.contains('workout-item')) {
+    if (e.target.classList.contains('drag-item')) {
         draggedItem = e.target;
         setTimeout(() => {
-            e.target.style.opacity = list.classList.contains('day-box') ? '0' : '0.5';
+            e.target.style.opacity = list.classList.contains('drop-list') ? '0' : '0.5';
         }, 0);
     }
 }
@@ -18,14 +18,14 @@ export function handleDragEnd(e) {
 // Helper function for dragover
 export function handleDragOver(e, list){
     e.preventDefault();
-    if (sourceList() !== list && !list.classList.contains('workouts-grid')) {
+    if (sourceList() !== list && !list.classList.contains('drag-list')) {
         const children = [...list.children];
         const closest = children.find(child => child.getBoundingClientRect().top > e.clientY);
-        if(!placeholder) {
+        if(!placeholder) { //Add only one placeholder
             placeholder = document.createElement('div');
-            placeholder.classList.add('placeholder');
+            placeholder.classList.add('custom-placeholder');
 
-            const width = draggedItem.offsetWidth;
+            const width = list.children[0].offsetWidth;
             const height = draggedItem.offsetHeight;
 
             placeholder.style.width = `${width}px`;
@@ -45,16 +45,15 @@ export function handleDrop(e, list){
   e.preventDefault();
   draggedItem.style.opacity = '1';
 
-  if (sourceList() !== list && !list.classList.contains('workouts-grid')) {
+  if (sourceList() !== list && !list.classList.contains('drag-list')) {
     const newItem = draggedItem.cloneNode(true); // Clone the dragged item
     list.insertBefore(newItem, placeholder); // Insert the new item at the correct position
   }
 
-  if (sourceList().classList.contains('day-box')) {
+  if (sourceList().classList.contains('drop-list')) {
       draggedItem.parentNode.removeChild(draggedItem); // Remove the original item from the source list
   }
   placeholder.remove(); // Remove placeholder
-  placeholder = null;
 }
 
 export function handleDragLeave(e) {

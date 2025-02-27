@@ -1,4 +1,4 @@
-from app.extensions import db
+from app import db
 from app.run import app
 from app.models.exercise import Exercise
 from app.models.muscle_group import MuscleGroup
