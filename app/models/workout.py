@@ -15,6 +15,14 @@ class Workout(BaseModel):
     def __repr__(self):
         return f"<Workout {self.name}>"
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'duration': self.duration,
+            'exercises': [exercise.to_dict() for exercise in self.exercises],
+        }
+
     @classmethod
     def search_by_name(cls, name):
         return cls.query.filter(cls.name.like(f"{name}%")).all()

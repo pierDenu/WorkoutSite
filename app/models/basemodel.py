@@ -15,7 +15,6 @@ class BaseModel(db.Model):
     def get_by_id(cls, id):
         return cls.query.filter_by(id=id).first()
 
-    @classmethod
-    def to_dict(cls):
-        return {key: value for key, value in cls.__dict__.items() if not key.startswith('_')}
+    def to_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 

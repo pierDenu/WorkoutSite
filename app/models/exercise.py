@@ -18,7 +18,15 @@ class Exercise(BaseModel):
         return f"<Exercise {self.name}>"
 
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'difficulty': self.difficulty,
+            'needs_additional_weight': self.needs_additional_weight,
+            'muscle_groups': [mg.name for mg in self.muscle_groups],
+        }
+
     @staticmethod
     def search_by_name(name):
-        exercises = Exercise.query.filter(Exercise.name.ilike(f'{name}%')).all()
-        return exercises
+        return Exercise.query.filter(Exercise.name.ilike(f'{name}%')).all()

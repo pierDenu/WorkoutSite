@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Flask / SQLite
+instance/
+app.db
+*.sqlite3
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# PyCharm
+.idea/
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
