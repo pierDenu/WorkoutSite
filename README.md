@@ -44,7 +44,7 @@ A Flask web application for creating and managing workout plans.
 
 5. Run the development server:
    ```bash
-   python app/run.py
+   python run.py
    ```
 
 The app will be available at `http://localhost:5000`.

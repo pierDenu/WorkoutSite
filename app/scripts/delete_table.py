@@ -1,10 +1,7 @@
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-
 from sqlalchemy import Table, MetaData
-from app import db
-from app.run import app
+from app import create_app, db
+
+app = create_app()
 
 
 def drop_table_by_name(table_name):

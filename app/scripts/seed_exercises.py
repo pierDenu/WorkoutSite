@@ -1,32 +1,15 @@
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-
-from app import db
-from app.run import app
+from app import create_app, db
 from app.models.exercise import Exercise
 from app.models.muscle_group import MuscleGroup
 
-# Database reset function
-def reset_database():
-    db.drop_all()
-    db.create_all()
-    print("Database has been reset.")
+app = create_app()
 
-# Seed data function
+
 def seed_data():
-    # Unique muscle groups
     muscle_groups_data = [
-        "Abs",
-        "Back",
-        "Biceps",
-        "Chest",
-        "Legs",
-        "Triceps",
-        "Shoulders"
+        "Abs", "Back", "Biceps", "Chest", "Legs", "Triceps", "Shoulders"
     ]
 
-    # Create muscle groups
     muscle_group_objects = {}
     for group_name in muscle_groups_data:
         group = MuscleGroup.query.filter_by(name=group_name).first()
@@ -37,7 +20,6 @@ def seed_data():
 
     db.session.commit()
 
-    # Exercises with associated muscle groups
     exercises_data = [
         {"name": "Push-Ups", "difficulty": "Medium", "muscle_groups": ["Chest", "Triceps"], "needs_additional_weight": False},
         {"name": "Dips", "difficulty": "Medium", "muscle_groups": ["Chest", "Triceps"], "needs_additional_weight": False},
@@ -48,7 +30,6 @@ def seed_data():
         {"name": "Handstand Push-Ups", "difficulty": "Hard", "muscle_groups": ["Shoulders"], "needs_additional_weight": False},
     ]
 
-    # Add exercises
     for exercise_data in exercises_data:
         exercise = Exercise.query.filter_by(name=exercise_data["name"]).first()
         if not exercise:
@@ -57,17 +38,15 @@ def seed_data():
                 difficulty=exercise_data["difficulty"],
                 needs_additional_weight=exercise_data["needs_additional_weight"]
             )
-
             for group_name in exercise_data["muscle_groups"]:
                 if group_name in muscle_group_objects:
                     exercise.muscle_groups.append(muscle_group_objects[group_name])
-
             db.session.add(exercise)
 
     db.session.commit()
     print("Database seeded with exercises and muscle groups!")
 
-# Main execution
+
 if __name__ == "__main__":
     with app.app_context():
         seed_data()
